@@ -2,7 +2,7 @@ name: Build & Deploy Folio
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Ağır eklentiler için sistem bağımlılıkları
+      # (Opsiyonel ama faydalı) Ağır eklentiler
       - name: System deps
         run: |
           sudo apt-get update
@@ -35,12 +35,7 @@ jobs:
         with:
           node-version: '20'
 
-      # jekyll-jupyter-notebook için
-      - name: Python deps
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install nbconvert nbformat jupyter
-
+      # Eğer package.json varsa (yoksa sorun değil)
       - name: Install JS deps (if any)
         run: |
           if [ -f package.json ]; then
@@ -64,9 +59,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
+    
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
