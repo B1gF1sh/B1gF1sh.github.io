@@ -1,11 +1,12 @@
 ---
 layout: page
-title: projects
+title: Academic Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: 
 nav: true
 nav_order: 3
-display_categories: [work, fun]
+masonry: true
+display_categories: false
 horizontal: false
 ---
 

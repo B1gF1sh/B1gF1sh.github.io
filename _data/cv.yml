@@ -2,96 +2,92 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+      value: Berk Ali Demir
+    - name: Location
+      value: Turin, Italy
+    - name: GitHub
+      value: github.com/B1gF1sh
+    - name: LinkedIn
+      value: linkedin.com/in/berkali
+    - name: Summary
+      value: Computer engineering student focused on CPU design, digital electronics, and high-performance C++ (SIMD/AVX, threading).
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: B.Sc. in Computer Engineering (ongoing)
+      institution: Politecnico di Torino — Turin, Italy
+      year: 2024–Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - Coursework includes Computer Architecture, Digital Electronics, Operating Systems.
+    - title: B.Sc. in Computer Engineering (transfer)
+      institution: TED University — Ankara, Turkey
+      year: 2021–2023
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Hardware Engineering Intern
+      institution: SARJJET — Istanbul, Turkey
+      year: Summer 2022
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Embedded firmware on PIC16F1516; real-time control and low-level debugging.
+    - title: University Mobile App Development Team
+      institution: TED University — Ankara, Turkey
+      year: 2022–2023
       description:
-        - Description 1.
-        - Description 2.
+        - Contributed to calendar/scheduler module; Java/Spring stack.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Academic Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Gate-Level Design of an 8-Bit Von Neumann CPU
+      institution: Course Project
+      year: 2025
+      description:
+        - Custom ALU (8 ops), gate-level registers/memory, hardwired FSM control, 8-bit data/address buses.
+    - title: SIMD Optimization Case Study (C++/AVX)
+      institution: Personal Project
+      year: 2025
+      description:
+        - Matrix multiplication with AVX (32-byte lanes) and pthreads; Bᵀ layout for contiguous loads.
 
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
-
-- title: Academic Interests
+- title: Skills
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Programming
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - C, C++
+    - title: Hardware / EDA
       items:
-        - Description 1.
-        - Description 2.
+        - Digital Logic, basic Verilog/RTL
+    - title: Tools
+      items:
+        - Proteus, LaTeX, Git
+    - title: Focus Areas
+      items:
+        - Computer Architecture, Parallel Programming, HPC
 
-- title: Other Interests
+- title: Activities
+  type: time_table
+  contents:
+    - title: Founding President — CYBERTEDU
+      institution: TED University
+      year: 2022–2023
+      description:
+        - Organized workshops/CTFs; built a student security community.
+
+- title: Languages
+  type: map
+  contents:
+    - name: Turkish
+      value: Native
+    - name: English
+      value: Professional
+    - name: Italian
+      value: Intermediate
+
+- title: References
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - Available upon request

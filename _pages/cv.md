@@ -1,11 +1,12 @@
 ---
 layout: cv
 permalink: /cv/
-title: cv
+title: Resume
 nav: true
 nav_order: 5
-cv_pdf: example_pdf.pdf # you can also use external links here
-description: This is a description of the page. You can modify it in '_pages/cv.md'. You can also change or remove the top pdf download button.
+cv_pdf: assets/pdf/Berk_RESUME.pdf   # PDF dosyanı buraya koy
+description: Wannabe CPU Architect
 toc:
   sidebar: left
 ---
+This page renders from `_data/cv.yml`. Edit that file to update content.

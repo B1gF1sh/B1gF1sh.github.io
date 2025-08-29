@@ -23,3 +23,21 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+/* Profile bloğunu gerçekten ortaya al */
+.profile {
+  float: none !important;          /* varsa float'ı kaldır */
+  text-align: center !important;   /* içeriği ortala */
+  margin: 0 auto 1rem auto !important;
+  width: 30%;
+}
+
+.profile img {
+  display: inline-block !important;
+  float: none !important;          /* img'e atılan float'ı da kaldır */
+}
+
+/* İsim ve alt başlığı ortala */
+.post-title,
+.post-header .desc {
+  text-align: center !important;
+}

@@ -1,81 +1,75 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title:  SIMD Optimization Case Study
+description: Row–column dot products computed in parallel lanes
+img: assets/img/Matrix_Main.jpg
 importance: 1
 category: work
-related_publications: true
+related_publications: false
+display_categories: ["work", "Academic"]
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+A compact study of matrix multiplication in C++ with a focus on <strong>SIMD (AVX)</strong>.  
+The page is visual-first and code-light; details are in the report.
 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/naive.jpg" title="SIMD lanes" class="img-fluid rounded z-depth-1" %}
   </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/matrix_avx.jpg" title="32-byte regs • load → mul/acc → store" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div class="col-sm mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/intel_die.jpg" title="CPU die (thumbnail)" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
-```
+<div class="caption">
+  Left: dot products executed in parallel lanes. Middle: <strong>32-byte</strong> register pipeline. Right: compact die thumbnail.
+</div>
 
-{% endraw %}
+---
+
+## AVX Core
+
+{% highlight cpp %}
+void* MultiplyWorker(void* arg){
+    ThreadData* data = (ThreadData*)arg;
+    int start = data->start_row;
+    int end   = data->end_row;
+
+    for (int i = start; i < end; ++i) {
+        for (int j = 0; j < N; ++j) {
+            __m256 sum = _mm256_setzero_ps();
+
+            int k = 0;
+
+            for (; k + 7 < N; k += 8) {
+                __m256 a = _mm256_loadu_ps(&A[i * N + k]);
+                __m256 b = _mm256_loadu_ps(&B_T[j * N + k]);
+                sum = _mm256_add_ps(sum, _mm256_mul_ps(a, b));
+            }
+
+            float temp[8];
+            _mm256_storeu_ps(temp, sum);
+
+            float total = 0.0f;
+            for (int t = 0; t < 8; ++t) {
+                total += temp[t];
+            }
+
+            for (; k < N; ++k) {
+                total += A[i * N + k] * B_T[j * N + k];
+            }
+            C[i * N + j] = total;
+        }
+    }
+
+    pthread_exit(nullptr);
+    return nullptr;
+}
+{% endhighlight %}
+---
+
+## Build
+```bash
+g++-O2-mavx-pthread main.cpp-o program
