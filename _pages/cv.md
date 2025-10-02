@@ -4,7 +4,7 @@ permalink: /cv/
 title: Resume
 nav: true
 nav_order: 5
-cv_pdf: assets/pdf/Berk_RESUME.pdf   # PDF dosyanı buraya koy
+cv_pdf: Berk_RESUME.pdf   # PDF dosyanı buraya koy
 description: Wannabe CPU Architect
 toc:
   sidebar: left

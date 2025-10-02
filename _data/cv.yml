@@ -10,7 +10,7 @@
     - name: LinkedIn
       value: linkedin.com/in/berkali
     - name: Summary
-      value: Computer engineering student focused on CPU design, digital electronics, and high-performance C++ (SIMD/AVX, threading).
+      value: Computer engineering student focused on CPU design, digital electronics, and high-performance computing architectures.
 
 - title: Education
   type: time_table
@@ -41,13 +41,18 @@
 - title: Academic Projects
   type: time_table
   contents:
+    - title: x86 Mini CPU Simulator
+      institution: Individual Project
+      year: 2025
+      description:
+        - Developed a lightweight 16-bit CPU simulator with an integrated assembler.
     - title: Gate-Level Design of an 8-Bit Von Neumann CPU
-      institution: Course Project
+      institution: Individual Project
       year: 2025
       description:
         - Custom ALU (8 ops), gate-level registers/memory, hardwired FSM control, 8-bit data/address buses.
     - title: SIMD Optimization Case Study (C++/AVX)
-      institution: Personal Project
+      institution: Assigned by Department (CmpE)
       year: 2025
       description:
         - Matrix multiplication with AVX (32-byte lanes) and pthreads; Bᵀ layout for contiguous loads.
