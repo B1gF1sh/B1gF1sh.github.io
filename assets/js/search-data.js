@@ -65,6 +65,11 @@ ninja.data = [{
           description: "Row–column dot products computed in parallel lanes",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
+            },},{id: "projects-x86-mini-cpu-simulator",
+          title: 'x86 Mini CPU Simulator',
+          description: "A 16-bit CPU simulator with a custom ISA, assembler-style parser, and graphical debugger",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/cpu-simulator";
             },},{id: "projects-gate-level-design-of-an-8-bit-von-neumann-cpu",
           title: 'Gate-Level Design of an 8-Bit Von Neumann CPU',
           description: "Complete 8-bit processor built at the gate level",
@@ -89,7 +94,7 @@ ninja.data = [{
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in/https://www.linkedin.com/in/berkali/", "_blank");
+          window.open("https://www.linkedin.com/in/linkedin.com/in/berkali", "_blank");
         },
       },{
       id: 'light-theme',
