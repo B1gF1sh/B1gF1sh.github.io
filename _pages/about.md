@@ -29,10 +29,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi, I am Berk Ali Demir, a senior year computer engineering student at [Politecnico di Torino](https://www.polito.it/). 
-
-My main interests are Computer Architecture, CPU Design, and Digital Electronics Design.
-I enjoy working on processor microarchitecture, parallel programming, and hardware design projects, and I’m aiming to contribute to the field of semiconductor and high-performance computing.
+Hi, I am Berk Ali Demir, a senior Computer Engineering student at  [Politecnico di Torino](https://www.polito.it/).  and an Undergraduate Research Assistant focusing on hardware acceleration for deep learning systems. My main areas of work include computer architecture, CPU/GPU design, and digital electronics. I focus on processor microarchitecture, parallel programming, and hardware design, with the goal of contributing to the fields of high-performance computing (HPC) and semiconductors.
 
 
 

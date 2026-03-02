@@ -36,3 +36,71 @@
 .post-header .desc {
   text-align: center !important;
 }
+/* --- Repo cards (Selected GitHub Projects) --- */
+.repositories {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  width: 100%;
+  align-items: stretch;
+  justify-items: stretch;
+}
+
+.repo-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+
+.repo-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.05);
+}
+
+.repo-card__title {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.02rem;
+  text-decoration: none;
+}
+
+.repo-card__subtitle {
+  margin-top: 4px;
+  opacity: 0.75;
+  font-size: 0.9rem;
+}
+
+.repo-card__badges {
+  margin-top: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.repo-card__badges img {
+  height: 18px;
+}
+
+/* --- GitHub user section alignment --- */
+.repo-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.repo-user__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+}
+
+.repo-user__name {
+  font-weight: 600;
+  text-decoration: none;
+}

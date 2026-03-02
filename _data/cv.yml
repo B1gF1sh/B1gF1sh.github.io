@@ -10,17 +10,23 @@
     - name: LinkedIn
       value: linkedin.com/in/berkali
     - name: Summary
-      value: Computer engineering student focused on CPU design, digital electronics, and high-performance computing architectures.
+      value: Focuses on Hardware-Acceleration
 
 - title: Education
   type: time_table
   contents:
-    - title: B.Sc. in Computer Engineering (ongoing)
+    - title: B.Sc. in Computer Engineering (ongoing GPA:~100/110)
       institution: Politecnico di Torino — Turin, Italy
       year: 2024–Present
       description:
-        - Coursework includes Computer Architecture, Digital Electronics, Operating Systems.
-    - title: B.Sc. in Computer Engineering (transfer)
+        ECE Track:
+            - " : "
+            - Computer Architecture, 
+            - Embedded Systems, 
+            - Automatic Control, 
+            - Digital Electronics Design, 
+            - Operating Systems
+    - title: B.Sc. in Computer Engineering (60 credit transferred)
       institution: TED University — Ankara, Turkey
       year: 2021–2023
 
@@ -41,6 +47,12 @@
 - title: Academic Projects
   type: time_table
   contents:
+    - title: High-Frequency 8-Stage RISC-V Core Design
+      institution: Individual Project
+      year: 2025
+      description:
+        - Independently conceptualized and designed an advanced 8-stage deep-pipelined RV32IM RISC-V core to
+          explore hardware-software co-design limits.
     - title: x86 Mini CPU Simulator
       institution: Individual Project
       year: 2025
@@ -62,16 +74,16 @@
   contents:
     - title: Programming
       items:
-        - C, C++
+        - C, C++, Python
     - title: Hardware / EDA
       items:
-        - Digital Logic, basic Verilog/RTL
+        - Digital Logic, Verilog/RTL
     - title: Tools
       items:
         - Proteus, LaTeX, Git
     - title: Focus Areas
       items:
-        - Computer Architecture, Parallel Programming, HPC
+        - Computer Architecture (Memory-Aware HW/SW Co-Design), Parallel Programming, HPC
 
 - title: Activities
   type: time_table
@@ -95,4 +107,4 @@
 - title: References
   type: list
   contents:
-    - Available upon request
+    - Available upon request; From both Politecnico di Torino, TED University
